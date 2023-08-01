@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTO;
+namespace App\DTO\Cursos;
 
 use App\Http\Requests\StoreUpdateCursoRequest;
 

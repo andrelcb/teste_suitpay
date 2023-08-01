@@ -12,15 +12,17 @@
         <th></th>
     </thead>
     <tbody>
-        @foreach ($cursos as $curso)
+        @foreach ($cursos->items() as $curso)
             <tr>
-                <td>{{ $curso['name'] }}</td>
-                <td>{{ $curso['type'] }}</td>
-                <td>{{ $curso['maximum_number__enrollments'] }}</td>
-                <td>{{ $curso['allowed_registration_date'] }}</td>
-                <td> <a href="{{ route('cursos.show', $curso['id']) }}">Detalhes</a></td>
-                <td> <a href="{{ route('cursos.edit', $curso['id']) }}">Editar</a></td>
+                <td>{{ $curso->name }}</td>
+                <td>{{ getTypesCurso($curso->type) }}</td>
+                <td>{{ $curso->maximum_number__enrollments }}</td>
+                <td>{{ $curso->allowed_registration_date }}</td>
+                <td> <a href="{{ route('cursos.show', $curso->id) }}">Detalhes</a></td>
+                <td> <a href="{{ route('cursos.edit', $curso->id) }}">Editar</a></td>
             </tr>
         @endforeach
     </tbody>
 </table>
+
+<x-pagination :paginator="$cursos" :appends="$filters" />

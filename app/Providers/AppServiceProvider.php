@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\CursoEloquentORM;
-use App\Repositories\CursoRepositotyInterface;
+use App\Repositories\CursoRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(CursoRepositotyInterface::class, CursoEloquentORM::class);
+        $this->app->bind(CursoRepositoryInterface::class, CursoEloquentORM::class);
     }
 
     /**

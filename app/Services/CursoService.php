@@ -4,13 +4,13 @@ namespace App\Services;
 
 use App\DTO\CreateCursoDTO;
 use App\DTO\UpdateCursoDTO;
-use App\Repositories\CursoRepositotyInterface;
+use App\Repositories\CursoRepositoryInterface;
 use stdClass;
 
 class CursoService
 {
     public function __construct(
-        protected CursoRepositotyInterface $repository,
+        protected CursoRepositoryInterface $repository,
     ) {
     }
 

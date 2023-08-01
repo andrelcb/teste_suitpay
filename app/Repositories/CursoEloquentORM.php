@@ -5,13 +5,13 @@ namespace App\Repositories;
 use App\DTO\CreateCursoDTO;
 use App\DTO\UpdateCursoDTO;
 use App\Models\Curso;
-use App\Repositories\CursoRepositotyInterface;
+use App\Repositories\CursoRepositoryInterface;
 use stdClass;
 
-class CursoEloquentORM implements CursoRepositotyInterface
+class CursoEloquentORM implements CursoRepositoryInterface
 {
     public function __construct(
-        protected Curso $model
+        protected Curso $model,
     ) {
     }
 

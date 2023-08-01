@@ -7,7 +7,7 @@ use App\DTO\CreateCursoDTO;
 use App\DTO\UpdateCursoDTO;
 use stdClass;
 
-interface CursoRepositotyInterface
+interface CursoRepositoryInterface
 {
     public function getAll(string $filter = null): array;
     public function findOne(string $id): stdClass|null;

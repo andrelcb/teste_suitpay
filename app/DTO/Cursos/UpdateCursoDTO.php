@@ -17,10 +17,10 @@ class UpdateCursoDTO
     }
 
 
-    public static function makeFromRequest(StoreUpdateCursoRequest $request): self
+    public static function makeFromRequest(StoreUpdateCursoRequest $request, string $id): self
     {
         return new self(
-            $request->id,
+            $id ?? $request->id,
             $request->name,
             $request->type,
             $request->maximum_number__enrollments,

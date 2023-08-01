@@ -61,7 +61,7 @@ class CursoController extends Controller
 
     public function update(StoreUpdateCursoRequest $request, string $id)
     {
-        $curso = $this->service->update(UpdateCursoDTO::makeFromRequest($request));
+        $curso = $this->service->update(UpdateCursoDTO::makeFromRequest($request, $id));
         if (!$curso) {
             return redirect()->back();
         };

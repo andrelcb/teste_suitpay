@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Adapters\ApiAdapter;
 use App\DTO\Cursos\CreateCursoDTO;
 use App\DTO\Cursos\UpdateCursoDTO;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,7 @@ class CursoController extends Controller
             filter: $request->filter,
         );
 
-        return new CursoResource($cursos);
+        return ApiAdapter::toJson($cursos);
     }
 
     /**

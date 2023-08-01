@@ -34,7 +34,7 @@ class StoreUpdateCursoRequest extends FormRequest
                 "required",
                 "min:3",
                 "max:255",
-                Rule::unique('cursos')->ignore($this->id),
+                Rule::unique('cursos')->ignore($this->curso ?? $this->id),
             ];
         }
 

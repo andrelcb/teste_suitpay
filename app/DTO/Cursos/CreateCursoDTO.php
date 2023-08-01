@@ -2,6 +2,7 @@
 
 namespace App\DTO\Cursos;
 
+use App\Enums\CursoTypes;
 use App\Http\Requests\StoreUpdateCursoRequest;
 
 class CreateCursoDTO

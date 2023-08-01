@@ -16,10 +16,15 @@ class CursoController extends Controller
     public function __construct(protected CursoService $service)
     {
     }
-    
+
     public function index(Request $request)
     {
-        $cursos = $this->service->getAll($request->filter);
+        $cursos = $this->service->paginate(
+            page: $request->get('page', 1),
+            totalPerPage: $request->get('per_page', 15),
+            filter: $request->filter,
+        );
+        
         return view('admin/cursos/index', compact('cursos'));
     }
 

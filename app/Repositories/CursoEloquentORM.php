@@ -17,7 +17,7 @@ class CursoEloquentORM implements CursoRepositoryInterface
 
     public function paginate(int $page = 1, int $totalPerPage = 15, string $filter = null): PaginationInterface
     {
-        $curso = $this->model
+        $result = $this->model
             ->where(function ($query) use ($filter) {
                 if ($filter) {
                     $query->where('name', 'like', "{$filter}");
@@ -26,7 +26,8 @@ class CursoEloquentORM implements CursoRepositoryInterface
             })
             ->paginate($totalPerPage, ['*'], 'page', $page);
 
-            dd($curso);
+            dd(New PaginationPresenter($result));
+            return New PaginationPresenter($result);
     }
 
     public function getAll(string $filter = null): array

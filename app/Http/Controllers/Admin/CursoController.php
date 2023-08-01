@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DTO\CreateCursoDTO;
-use App\DTO\UpdateCursoDTO;
+use App\DTO\Cursos\CreateCursoDTO;
+use App\DTO\Cursos\UpdateCursoDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateCursoRequest;
 use App\Models\Curso;
@@ -24,8 +24,9 @@ class CursoController extends Controller
             totalPerPage: $request->get('per_page', 15),
             filter: $request->filter,
         );
+        $filters = ['filter' => $request->get('filter', '')];
         
-        return view('admin/cursos/index', compact('cursos'));
+        return view('admin/cursos/index', compact('cursos', 'filters'));
     }
 
     public function show(string $id)

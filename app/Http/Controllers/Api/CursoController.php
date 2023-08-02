@@ -40,7 +40,7 @@ class CursoController extends Controller
     {
         $curso = $this->service->new(CreateCursoDTO::makeFromRequest($request));
 
-        return  new CursoResource($curso);
+        return new CursoResource($curso);
     }
 
     /**

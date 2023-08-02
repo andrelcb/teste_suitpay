@@ -47,7 +47,7 @@ class CursoController extends Controller
     {
         $this->service->new(CreateCursoDTO::makeFromRequest($request));
 
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('message', 'Cadastrado com sucesso.');
     }
 
     public function edit(string $id)
@@ -65,12 +65,12 @@ class CursoController extends Controller
         if (!$curso) {
             return redirect()->back();
         };
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('message', 'Atualizado com sucesso.');
     }
 
     public function destroy(string|int $id)
     {
         $this->service->delete($id);
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('message', 'Deletado com sucesso.');
     }
 }

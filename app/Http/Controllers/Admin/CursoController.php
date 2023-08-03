@@ -9,6 +9,7 @@ use App\Http\Requests\StoreUpdateCursoRequest;
 use App\Models\Curso;
 use App\Services\CursoService;
 use Illuminate\Http\Request;
+use RegistrationService;
 
 class CursoController extends Controller
 {

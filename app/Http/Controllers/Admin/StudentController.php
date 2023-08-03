@@ -6,6 +6,8 @@ use App\DTO\Students\CreateStudentsDTO;
 use App\DTO\Students\UpdateStudentsDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateStudentsRequest;
+use App\Models\Registration;
+use App\Services\RegistrationService;
 use App\Services\StudentService;
 use Illuminate\Http\Request;
 
@@ -13,7 +15,8 @@ class StudentController extends Controller
 {
 
     public function __construct(
-        protected StudentService $service
+        protected StudentService $service,
+        protected RegistrationService $serviceRegistration
     ) {
     }
 
@@ -87,6 +90,7 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->serviceRegistration->removeAllRegistration($id);
         $this->service->delete($id);
         return redirect()->route('students.index')->with('message', 'Deletado com sucesso.');
     }

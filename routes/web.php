@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{CursoController};
+use App\Http\Controllers\Admin\{CursoController, StudentController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
+    Route::resource('/students', StudentController::class);
     Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
     Route::delete('/cursos/{id}', [CursoController::class, 'destroy'])->name('cursos.destroy');
     Route::put('/cursos/{id}', [CursoController::class, 'update'])->name('cursos.update');

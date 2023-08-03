@@ -17,4 +17,9 @@ class Curso extends Model
         'maximum_number__enrollments',
         'allowed_registration_date'
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class, 'cursos_id');
+    }
 }

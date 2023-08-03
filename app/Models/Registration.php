@@ -14,4 +14,14 @@ class Registration extends Model
         'students_id',
         'cursos_id'
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'students_id');
+    }
+
+    public function curso()
+    {
+        return $this->belongsTo(Curso::class, 'cursos_id');
+    }
 }

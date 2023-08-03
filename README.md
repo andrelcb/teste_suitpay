@@ -1,11 +1,8 @@
 
-# Setup Docker Laravel 10 com PHP 8.1
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
-
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-10-com-php-8.1 https://github.com/especializati/setup-docker-laravel.git app-laravel
+git clone https://github.com/andrelcb/teste_suitpay.git
 ```
 ```sh
 cd app-laravel
@@ -20,23 +17,15 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME=EspecializaTi
+APP_NAME=Andre
 APP_URL=http://localhost:8989
 
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
-DB_USERNAME=nome_usuario
-DB_PASSWORD=senha_aqui
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=root
 ```
 
 
@@ -61,6 +50,10 @@ composer install
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
+```
+Execute o comando
+```sh
+npm run dev
 ```
 
 

@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Repositories;
+namespace App\Repositories\Students;
 
-use App\DTO\Cursos\CreateStudentsDTO;
-use App\DTO\Cursos\UpdateStudentsDTO;
+use App\DTO\Students\CreateStudentsDTO;
+use App\DTO\Students\UpdateStudentsDTO;
+use App\Repositories\PaginationInterface;
 use stdClass;
 
 interface StudentRepositoryInterface

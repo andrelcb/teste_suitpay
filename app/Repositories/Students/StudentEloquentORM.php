@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Students;
 
-use App\DTO\Cursos\CreateStudentsDTO;
-use App\DTO\Cursos\UpdateStudentsDTO;
+use App\DTO\Students\CreateStudentsDTO;
+use App\DTO\Students\UpdateStudentsDTO;
 use App\Models\Student;
+use App\Repositories\PaginationInterface;
+use App\Repositories\PaginationPresenter;
 use stdClass;
 
 class StudentEloquentORM implements StudentRepositoryInterface
@@ -20,7 +22,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
             ->where(function ($query) use ($filter) {
                 if ($filter) {
                     $query->where('name', 'like', "{$filter}");
-                    $query->orWhere('type', $filter);
+                    $query->orWhere('age', $filter);
                 }
             })
             ->paginate($totalPerPage, ['*'], 'page', $page);
@@ -34,7 +36,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
             ->where(function ($query) use ($filter) {
                 if ($filter) {
                     $query->where('name', 'like', "{$filter}");
-                    $query->orWhere('type', $filter);
+                    $query->orWhere('age', $filter);
                 }
             })
             ->get()
@@ -43,7 +45,7 @@ class StudentEloquentORM implements StudentRepositoryInterface
 
     public function findOne(string $id): stdClass|null
     {
-        $curso = $this->model->find($id);
+        $curso = $this->model->with(['registrations.curso'])->find($id);
         if (!$curso) {
             return null;
         }

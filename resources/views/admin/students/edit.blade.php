@@ -9,10 +9,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
-                <form action="{{ route('cursos.update', $student->id) }}" method="POST">
+                <form action="{{ route('students.update', $student->id) }}" method="POST">
                     @csrf()
                     @method('PUT')
-                    @include('admin.cursos.partials.form', ['student' => $student])
+                    @include('admin.students.partials.form', ['student' => $student])
                 </form>
             </div>
         </div>

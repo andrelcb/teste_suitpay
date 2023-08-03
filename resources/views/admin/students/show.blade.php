@@ -11,7 +11,6 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
                 <div class="flex items-center justify-between p-4">
                     <ul class="list-none hover:list-disc text-gray-200">
-                        <li>Nome: {{ $student->type }}</li>
                         <li>Idade: {{ $student->age }}</li>
                         <li>Data de nascimento: {{ $student->date_of_birth }}</li>
                     </ul>

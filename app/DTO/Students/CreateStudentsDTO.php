@@ -1,21 +1,21 @@
 <?php
 
-namespace App\DTO\Cursos;
+namespace App\DTO\Students;
 
 use App\Enums\CursoTypes;
-use App\Http\Requests\StoreUpdateCursoRequest;
+use App\Http\Requests\StoreUpdateStudentsRequest;
 
 class CreateStudentsDTO
 {
     public function __construct(
         public string $name,
-        public string $age,
-        public int $date_of_birth,
+        public int $age,
+        public string $date_of_birth,
     ) {
     }
 
 
-    public static function makeFromRequest(StoreUpdateCursoRequest $request): self
+    public static function makeFromRequest(StoreUpdateStudentsRequest $request): self
     {
         return new self(
             $request->name,

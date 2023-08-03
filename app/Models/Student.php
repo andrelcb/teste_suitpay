@@ -14,4 +14,10 @@ class Student extends Model
         'age',
         'date_of_birth'
     ];
+
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class, 'students_id');
+    }
 }

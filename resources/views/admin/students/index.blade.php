@@ -6,6 +6,6 @@
 
     @include('admin.students.partials.content', compact('students'));
     
-    <x-pagination :paginator="$cursos" :appends="$filters" />
+    <x-pagination :paginator="$students" :appends="$filters" />
 
 </x-app-layout>

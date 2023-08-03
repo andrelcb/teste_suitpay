@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\DTO\Cursos\CreateStudentsDTO;
-use App\DTO\Cursos\UpdateStudentsDTO;
+use App\DTO\Students\CreateStudentsDTO;
+use App\DTO\Students\UpdateStudentsDTO;
 use App\Repositories\PaginationInterface;
-use App\Repositories\StudentRepositoryInterface;
+use App\Repositories\Students\StudentRepositoryInterface;
 use stdClass;
 
 class StudentService

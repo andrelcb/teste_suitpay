@@ -29,7 +29,7 @@
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap dark:text-white">
                                 {{ $student->name }}
                             </td>
-                            <td class="px-12 py-2 text-sm font-medium whitespace-nowrap">
+                            <td class="px-12 py-2 text-sm dark:text-white font-medium whitespace-nowrap">
                                 {{ $student->age }}
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
@@ -37,12 +37,12 @@
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap flex">
                                 {{-- @can('owner', $curso->user_id) --}}
-                                <a href="{{ route('cursos.edit', $custudentrso->id) }}"
+                                <a href="{{ route('students.edit', $student->id) }}"
                                     class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg">
                                     Editar
                                 </a>
                                 {{-- @endcan --}}
-                                <a href="{{ route('cursos.show', $student->id) }}"
+                                <a href="{{ route('students.show', $student->id) }}"
                                     class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

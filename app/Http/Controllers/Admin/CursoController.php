@@ -43,7 +43,7 @@ class CursoController extends Controller
         return view('admin/cursos/create');
     }
 
-    public function store(StoreUpdateCursoRequest $request, Curso $curso)
+    public function store(StoreUpdateCursoRequest $request)
     {
         $this->service->new(CreateCursoDTO::makeFromRequest($request));
 

@@ -1,14 +1,18 @@
-@extends('admin.template.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Novo curso
+        </h2>
+    </x-slot>
 
-@section('title', 'Cadastro de cursos')
-
-@section('header')
-    <h1 class="text-lg text-black-500">Novo curso</h1>
-@endsection
-
-@section('content')
-    <x-alert />
-    <form action="{{ route('cursos.store') }}" method="POST">
-        @include('admin.cursos.partials.form')
-    </form>
-@endsection
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
+                <x-alert />
+                <form action="{{ route('cursos.store') }}" method="POST">
+                    @include('admin.cursos.partials.form')
+                </form>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

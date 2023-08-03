@@ -1,16 +1,20 @@
-@extends('admin.template.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Editar Curso: {{ $curso->name }}
+        </h2>
+    </x-slot>
 
-@section('title', 'Cadastro de cursos')
-
-@section('header')
-    <h1 class="text-lg text-black-500">Novo curso Curso: {{ $curso->name }}</h1>
-@endsection
-
-@section('content')
     <x-alert />
-    <form action="{{ route('cursos.update', $curso->id) }}" method="POST">
-        @csrf()
-        @method('PUT')
-        @include('admin.cursos.partials.form', ['curso' => $curso])
-    </form>
-@endsection
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4">
+                <form action="{{ route('cursos.update', $curso->id) }}" method="POST">
+                    @csrf()
+                    @method('PUT')
+                    @include('admin.cursos.partials.form', ['curso' => $curso])
+                </form>
+            </div>
+        </div>
+    </div>
+</x-app-layout>

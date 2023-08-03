@@ -1,13 +1,11 @@
-@extends('admin.template.app')
+<x-app-layout>
 
-@section('title', 'Listagem de cursos')
+    <x-slot name="header">
+        @include('admin.cursos.partials.header', compact('cursos'))
+    </x-slot>
 
-@section('header')
-    @include('admin.cursos.partials.header', compact('cursos'))
-@endsection
-
-@section('content')
     @include('admin.cursos.partials.content', compact('cursos'));
-
+    
     <x-pagination :paginator="$cursos" :appends="$filters" />
-@endsection
+
+</x-app-layout>

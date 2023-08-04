@@ -85,7 +85,10 @@ class CursoController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $this->service->delete($id);
+        $response = $this->service->delete($id);
+        if ($response['error'] !== "") {
+            return response()->json($response['error'], Response::HTTP_NOT_FOUND);
+        }
         return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }

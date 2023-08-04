@@ -86,6 +86,7 @@ class StudentController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $this->serviceRegistration->removeAllRegistration($id);
         $this->service->delete($id);
         return response()->json([], Response::HTTP_NO_CONTENT);
     }

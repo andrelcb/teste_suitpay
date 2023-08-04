@@ -20,8 +20,8 @@ class CursoEloquentORM implements CursoRepositoryInterface
         $result = $this->model
             ->where(function ($query) use ($filter) {
                 if ($filter) {
-                    $query->where('name', 'like', "{$filter}");
-                    $query->orWhere('type', $filter);
+                    $query->where('name', 'like', "%{$filter}%");
+                    $query->orWhere('type', '=', $filter);
                 }
             })
             ->paginate($totalPerPage, ['*'], 'page', $page);

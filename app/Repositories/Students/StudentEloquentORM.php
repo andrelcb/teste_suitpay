@@ -21,13 +21,13 @@ class StudentEloquentORM implements StudentRepositoryInterface
         $result = $this->model
             ->where(function ($query) use ($filter) {
                 if ($filter) {
-                    $query->where('name', 'like', "{$filter}");
-                    $query->orWhere('age', $filter);
+                    $query->where('name', 'like', "%{$filter}%")
+                          ->orWhere('age', '=', $filter);
                 }
             })
             ->paginate($totalPerPage, ['*'], 'page', $page);
-            
-            return New PaginationPresenter($result);
+
+        return new PaginationPresenter($result);
     }
 
     public function getAll(string $filter = null): array

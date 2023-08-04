@@ -24,6 +24,13 @@
                     </form>
                 </div>
             </div>
+
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-4 my-5">
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight p-4">
+                    Cursos matriculados
+                </h2>
+                @include('admin.students.partials.cursos_registration')
+            </div>
         </div>
     </div>
 </x-app-layout>

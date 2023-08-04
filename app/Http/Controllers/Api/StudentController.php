@@ -3,45 +3,48 @@
 namespace App\Http\Controllers\Api;
 
 use App\Adapters\ApiAdapter;
-use App\DTO\Cursos\CreateCursoDTO;
-use App\DTO\Cursos\UpdateCursoDTO;
+use App\DTO\Students\CreateStudentsDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateCursoRequest;
-use App\Http\Resources\CursoResource;
+use App\Http\Requests\StoreUpdateStudentsRequest;
 use App\Http\Resources\DefaultResource;
-use App\Services\CursoService;
+use App\Http\Resources\StudentResource;
+use App\Services\RegistrationService;
+use App\Services\StudentService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CursoController extends Controller
+class StudentController extends Controller
 {
 
     public function __construct(
-        protected CursoService $service,
-    ) {
+        protected StudentService $service,
+        protected RegistrationService $serviceRegistration
+    ){
     }
+
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(StoreUpdateStudentsRequest $request)
     {
-        $cursos = $this->service->paginate(
+        $students = $this->service->paginate(
             page: $request->get('page', 1),
             totalPerPage: $request->get('per_page', 15),
             filter: $request->filter,
         );
+        $filters = ['filter' => $request->get('filter', '')];
 
-        return ApiAdapter::toJson($cursos);
+        return ApiAdapter::toJson($students);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUpdateCursoRequest $request)
+    public function store(StoreUpdateStudentsRequest $request)
     {
-        $curso = $this->service->new(CreateCursoDTO::makeFromRequest($request));
+        $student = $this->service->new(CreateStudentsDTO::makeFromRequest($request));
 
-        return new CursoResource($curso);
+        return new StudentResource($student);
     }
 
     /**
@@ -49,29 +52,27 @@ class CursoController extends Controller
      */
     public function show(string $id)
     {
-        if (!$curso = $this->service->findOne($id)) {
+        if (!$student = $this->service->findOne($id)) {
             return response()->json([
                 'error' => 'Not Found'
             ], Response::HTTP_NOT_FOUND);
         }
 
-        return new DefaultResource($curso);
+        return new DefaultResource($student );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUpdateCursoRequest $request, string $id)
+    public function update(string $id)
     {
-        $curso = $this->service->update(UpdateCursoDTO::makeFromRequest($request, $id));
-
-        if (!$curso) {
+        if (!$student = $this->service->findOne($id)) {
             return response()->json([
                 'error' => 'Not Found'
             ], Response::HTTP_NOT_FOUND);
-        }
+        };
 
-        return new CursoResource($curso);
+        return new StudentResource($student);
     }
 
     /**

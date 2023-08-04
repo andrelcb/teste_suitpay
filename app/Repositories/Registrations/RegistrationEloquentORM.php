@@ -64,4 +64,9 @@ class RegistrationEloquentORM implements RegistrationRepositoryInterface
     {
         return $this->model->where('students_id', $studentID)->where('cursos_id', $cursosId)->exists();
     }
+    
+    public function isExistThisCurso(string $cursosId): bool
+    {
+        return $this->model->where('cursos_id', $cursosId)->exists();
+    }
 }

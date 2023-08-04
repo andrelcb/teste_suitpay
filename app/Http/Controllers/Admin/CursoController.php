@@ -18,7 +18,7 @@ class CursoController extends Controller
     public function __construct(
         protected CursoService $service,
         protected StudentService $studentService
-    ){
+    ) {
     }
 
     public function index(Request $request)
@@ -29,7 +29,7 @@ class CursoController extends Controller
             filter: $request->filter,
         );
         $filters = ['filter' => $request->get('filter', '')];
-        
+
         return view('admin/cursos/index', compact('cursos', 'filters'));
     }
 
@@ -77,7 +77,10 @@ class CursoController extends Controller
 
     public function destroy(string|int $id)
     {
-        $this->service->delete($id);
+        $response  = $this->service->delete($id);
+        if ($response['error'] !== "") {
+            return redirect()->route('cursos.show', $id)->with('error', 'Você nao pode deletar esse curso, ele possivel alunos ativos.');
+        }
         return redirect()->route('cursos.index')->with('message', 'Deletado com sucesso.');
     }
 }

@@ -21,7 +21,7 @@ class TypesCurso extends Component
      */
     public function render(): View|Closure|string
     {
-        $color = 'blue';
+        $color = 'red';
         $color = $this->type === 'Online' ? 'green' : $color;
         $textType = getTypesCurso($this->type);
         return view('components.types-curso', compact('textType', 'color'));

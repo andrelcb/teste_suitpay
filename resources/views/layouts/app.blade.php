@@ -32,6 +32,7 @@
         <!-- Page Content -->
         <main>
             <x-message />
+            <x-message-errors />
             {{ $slot }}
         </main>
     </div>

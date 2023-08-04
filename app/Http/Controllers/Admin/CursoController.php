@@ -8,14 +8,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateCursoRequest;
 use App\Models\Curso;
 use App\Services\CursoService;
+use App\Services\StudentService;
 use Illuminate\Http\Request;
 use RegistrationService;
 
 class CursoController extends Controller
 {
 
-    public function __construct(protected CursoService $service)
-    {
+    public function __construct(
+        protected CursoService $service,
+        protected StudentService $studentService
+    ){
     }
 
     public function index(Request $request)
@@ -36,7 +39,10 @@ class CursoController extends Controller
             return redirect()->back();
         };
 
-        return view('admin/cursos/show', compact('curso'));
+        // dd($curso);
+        $students = $this->studentService->getAll();
+
+        return view('admin/cursos/show', compact('curso', 'students'));
     }
 
     public function create()

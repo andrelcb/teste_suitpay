@@ -15,7 +15,7 @@
                         <li>Data de nascimento: {{ $student->date_of_birth }}</li>
                     </ul>
 
-                    <form action="{{ route('cursos.destroy', $student->id) }}" method="POST">
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                         @csrf()
                         @method('delete')
                         <button class="bg-red-500 p-3 hover:bg-red-400 text-white" type="submit">

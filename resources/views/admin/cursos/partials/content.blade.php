@@ -42,7 +42,7 @@
                             <td class="px-4 py-2 text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
                                 {{ $curso->allowed_registration_date }}
                             </td>
-                            <td class="px-4 py-2 text-sm whitespace-nowrap flex">
+                            <td class="px-4 py-2 text-sm whitespace-nowrap flex gap-2">
                                 {{-- @can('owner', $curso->user_id) --}}
                                 <a href="{{ route('cursos.edit', $curso->id) }}"
                                     class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg">
@@ -51,11 +51,7 @@
                                 {{-- @endcan --}}
                                 <a href="{{ route('cursos.show', $curso->id) }}"
                                     class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                    </svg>
+                                    Detalhes
                                 </a>
                             </td>
                         </tr>

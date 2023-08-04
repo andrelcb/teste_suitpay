@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Registrations;
 
-use App\DTO\Students\CreateRegistrationDTO;
+use App\DTO\Registrations\CreateRegistrationDTO;
 use App\Models\Registration;
 use stdClass;
 
@@ -12,6 +12,7 @@ class RegistrationEloquentORM implements RegistrationRepositoryInterface
         protected Registration $model,
     ) {
     }
+
     public function getAll(string $filter = null): array
     {
         return $this->model
@@ -49,5 +50,18 @@ class RegistrationEloquentORM implements RegistrationRepositoryInterface
             })
             ->get()
             ->toArray();
+    }
+
+    public function getCount(string $id): int
+    {
+        return $this->model
+            ->where('cursos_id', $id)
+            ->get()
+            ->count();
+    }
+
+    public function isExistStudentThisCursso(string $studentID, string $cursosId): bool
+    {
+        return $this->model->where('students_id', $studentID)->where('cursos_id', $cursosId)->exists();
     }
 }

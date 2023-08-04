@@ -1,9 +1,8 @@
 <?php
 
-namespace App\DTO\Students;
+namespace App\DTO\Registrations;
 
-use App\Enums\CursoTypes;
-use App\Http\Requests\StoreUpdateStudentsRequest;
+use App\Http\Requests\StoreRegistrationRequest;
 
 class CreateRegistrationDTO
 {
@@ -14,7 +13,7 @@ class CreateRegistrationDTO
     }
 
 
-    public static function makeFromRequest(StoreUpdateStudentsRequest $request): self
+    public static function makeFromRequest(StoreRegistrationRequest $request): self
     {
         return new self(
             $request->students_id,

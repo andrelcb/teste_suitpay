@@ -44,7 +44,7 @@ class CursoEloquentORM implements CursoRepositoryInterface
 
     public function findOne(string $id): stdClass|null
     {
-        $curso = $this->model->find($id);
+        $curso = $this->model->with(['registrations.student'])->find($id);
         if (!$curso) {
             return null;
         }

@@ -59,3 +59,9 @@ npm run dev
 
 Acesse o projeto
 [http://localhost:8989](http://localhost:8989)
+
+
+Ao entrar no projeto sera necessário criar uma conta, e logar.
+Após logar voce sera redireiconado para tela de dashboard.
+Nessa tela tem a aba de alunos e cursos, e dentro da aba de cursos, apos cadastrar um curso vai exibir a listagem,
+na listagem tem um botao de detalhes, onde voce vai matricular o aluno e exibir os alunos matriculados.

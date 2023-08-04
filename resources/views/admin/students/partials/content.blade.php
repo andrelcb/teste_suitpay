@@ -10,7 +10,7 @@
                         </th>
 
                         <th scope="col"
-                            class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             Idade do aluno
                         </th>
 
@@ -29,7 +29,7 @@
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap dark:text-white">
                                 {{ $student->name }}
                             </td>
-                            <td class="px-12 py-2 text-sm dark:text-white font-medium whitespace-nowrap">
+                            <td class="px-4 py-2 text-sm font-medium whitespace-nowrap dark:text-white">
                                 {{ $student->age }}
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
